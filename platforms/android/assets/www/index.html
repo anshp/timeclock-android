@@ -37,12 +37,11 @@
 		<div class="app">
 			<image src = 'img/logo.png' style="width:98%">
 			<h1>Time Clock</h1>
-
 			<form class='width' name="input" action="http://test.teamkollab.com/time_clock/public/" method="post">
 				<input type="hidden" id = "latitude" name="latitude">
 				<input type="hidden" id = "longitude" name="longitude"> 
 				<label for="username">Username: </label>
-				<input type="text" class = 'form-control' name="username"><br>
+				<input type="text" class = 'form-control' name="username" id = "username"><br>
 				<label for="password">Password: </label>
 				<input type="text" class = 'form-control' name="password"><br>
 				<input type="submit" class = 'width2 btn' name ="login" value="Login" id = "loginbutton">
@@ -61,6 +60,7 @@
 				lat.value = position.coords.latitude;
 				long.value = position.coords.longitude;
 			}
+			document.getElementById("username").focus();
 		</script>
 	</body>
 	
