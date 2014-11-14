@@ -39,7 +39,8 @@
 			<h1>Time Clock</h1>
 
 			<form class='width' name="input" action="http://test.teamkollab.com/time_clock/public/" method="post">
-				<input type="hidden" id = "location" name="location">
+				<input type="hidden" id = "latitude" name="latitude">
+				<input type="hidden" id = "longitude" name="longitude"> 
 				<label for="username">Username: </label>
 				<input type="text" class = 'form-control' name="username"><br>
 				<label for="password">Password: </label>
@@ -49,17 +50,17 @@
 			</form> 
 		</div>
 		<script>
-		var x = document.getElementById("location");
-
-		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(showPosition);
-		} else {
-			x.value = "Geolocation is not supported by this browser.";
-		}
-		function showPosition(position) {
-			x.value = "Lat:- " + position.coords.latitude + 
-			" Long:- " + position.coords.longitude;	
-		}
+			var lat = document.getElementById("latitude");
+			var long = document.getElementById("longitude");
+			if (navigator.geolocation) {
+				navigator.geolocation.getCurrentPosition(showPosition);
+			} else {
+				lat.value = "Geolocation not provided by app";
+			}
+			function showPosition(position) {
+				lat.value = position.coords.latitude;
+				long.value = position.coords.longitude;
+			}
 		</script>
 	</body>
 	
